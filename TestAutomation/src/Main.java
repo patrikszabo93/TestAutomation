@@ -22,7 +22,7 @@ public class Main {
             loginButtonClick.click();
             Thread.sleep(2500);
         }catch (NoSuchElementException ex){
-            System.err.println("Cannot find username input field");
+            System.err.println("Cannot find username/Password input field or login button");
         }
 
         driver.quit();
