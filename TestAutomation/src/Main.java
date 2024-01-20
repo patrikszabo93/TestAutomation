@@ -13,11 +13,19 @@ public class Main {
 
         try {
           WebElement  userNameInput = driver.findElement(By.id("user-name"));
-            userNameInput.sendKeys("hello");
+            userNameInput.sendKeys("standard_user");
         }catch (NoSuchElementException ex){
             System.err.println("Cannot find username input field");
         }
-        Thread.sleep(10000);
+        Thread.sleep(5000);
+        try {
+            WebElement  passwordInput = driver.findElement(By.id("password"));
+            passwordInput.sendKeys("secret_sauce");
+        }catch (NoSuchElementException ex){
+            System.err.println("Cannot find username input field");
+        }
+
+        Thread.sleep(5000);
         driver.quit();
 
     }
