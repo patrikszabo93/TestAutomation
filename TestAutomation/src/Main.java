@@ -17,7 +17,7 @@ public class Main {
         }catch (NoSuchElementException ex){
             System.err.println("Cannot find username input field");
         }
-        Thread.sleep(5000);
+        Thread.sleep(3000);
         try {
             WebElement  passwordInput = driver.findElement(By.id("password"));
             passwordInput.sendKeys("secret_sauce");
@@ -25,7 +25,16 @@ public class Main {
             System.err.println("Cannot find username input field");
         }
 
+        Thread.sleep(3000);
+        try {
+            WebElement  loginButtonClick = driver.findElement(By.id("login-button"));
+            loginButtonClick.click();
+        }catch (NoSuchElementException ex){
+            System.err.println("Cannot find username input field");
+        }
+
         Thread.sleep(5000);
+
         driver.quit();
 
     }
