@@ -4,19 +4,27 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
 public class Main {
     public static void main(String[] args) throws InterruptedException {
+
         WebDriver driver = new FirefoxDriver();
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofMillis(30000));
+        driver.manage().timeouts().implicitlyWait(Duration.ofMillis(10000));
         driver.get("https://www.saucedemo.com/");
+
+        WebDriverWait wait = new WebDriverWait(driver,Duration.ofMillis(30000));
+
 
 
         try {
-          WebElement  userNameInput = driver.findElement(By.id("user-name"));
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("user-name")));
+            WebElement  userNameInput = driver.findElement(By.id("user-name"));
             userNameInput.sendKeys("standard_user");
             Thread.sleep(2500);
             WebElement  passwordInput = driver.findElement(By.id("password"));
