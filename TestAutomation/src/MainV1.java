@@ -20,7 +20,8 @@ public class MainV1 {
      //   loginByNameTest();
      //   loginByClassTest();
      //   loginByTagnameTest();
-        loginByTagnameV2Test();
+      //  loginByTagnameV2Test();
+        loginByCSSSelectorTest();
     webDriverTearDown();
         System.out.println("Test execution done");
 
@@ -105,4 +106,15 @@ public class MainV1 {
         loginButtonClick.click();
     }
 
+    public static void loginByCSSSelectorTest(){
+        driver.get("https://www.saucedemo.com/");
+        WebElement userNameInput = driver.findElement(By.cssSelector("input#user-name"));
+        userNameInput.sendKeys("standard_user");
+
+        WebElement  passwordInput = driver.findElement(By.cssSelector("input#password"));
+        passwordInput.sendKeys("secret_sauce");
+
+        WebElement  loginButtonClick = driver.findElement(By.cssSelector("input[id='login-button']"));
+        loginButtonClick.click();
+    }
 }
