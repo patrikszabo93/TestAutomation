@@ -21,7 +21,8 @@ public class MainV1 {
      //   loginByClassTest();
      //   loginByTagnameTest();
       //  loginByTagnameV2Test();
-        loginByCSSSelectorTest();
+      //  loginByCSSSelectorTest();
+        loginByxPathTest();
     webDriverTearDown();
         System.out.println("Test execution done");
 
@@ -115,6 +116,17 @@ public class MainV1 {
         passwordInput.sendKeys("secret_sauce");
 
         WebElement  loginButtonClick = driver.findElement(By.cssSelector("input[id='login-button']"));
+        loginButtonClick.click();
+    }
+    public static void loginByxPathTest(){
+        driver.get("https://www.saucedemo.com/");
+        WebElement userNameInput = driver.findElement(By.xpath("/html/body/div/div/div[2]/div[1]/div/div/form/div[1]/input"));// vagy //*[@id="user-name"]
+        userNameInput.sendKeys("standard_user");
+
+        WebElement  passwordInput = driver.findElement(By.xpath("/html/body/div/div/div[2]/div[1]/div/div/form/div[2]/input")); //vagy //*[@id="password"]
+        passwordInput.sendKeys("secret_sauce");
+
+        WebElement  loginButtonClick = driver.findElement(By.xpath("/html/body/div/div/div[2]/div[1]/div/div/form/input"));// vagy //*[@id="login-button"]
         loginButtonClick.click();
     }
 }
