@@ -8,6 +8,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.List;
 
 public class MainV1 {
     static WebDriver driver;
@@ -15,10 +16,11 @@ public class MainV1 {
 
     public static void main(String[] args) throws InterruptedException {
     webDriverSetup();
-    loginByIDTest();
+   // loginByIDTest();
      //   loginByNameTest();
      //   loginByClassTest();
      //   loginByTagnameTest();
+        loginByTagnameV2Test();
     webDriverTearDown();
         System.out.println("Test execution done");
 
@@ -88,6 +90,18 @@ public class MainV1 {
         passwordInput.sendKeys("secret_sauce");
 
         WebElement  loginButtonClick = driver.findElement(By.tagName("input"));
+        loginButtonClick.click();
+    }
+    public static void loginByTagnameV2Test(){
+        driver.get("https://www.saucedemo.com/");
+       List<WebElement> inputElements = driver.findElements(By.tagName("input"));
+        WebElement userNameinput = inputElements.get(0);
+        userNameinput.sendKeys("standard_user");
+
+        WebElement  passwordInput = inputElements.get(1);
+        passwordInput.sendKeys("secret_sauce");
+
+        WebElement  loginButtonClick =inputElements.get(2);
         loginButtonClick.click();
     }
 
