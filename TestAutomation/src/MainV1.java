@@ -15,9 +15,10 @@ public class MainV1 {
 
     public static void main(String[] args) throws InterruptedException {
     webDriverSetup();
-    //loginByIDTest();
+    loginByIDTest();
      //   loginByNameTest();
-        loginByClassTest();
+     //   loginByClassTest();
+     //   loginByTagnameTest();
     webDriverTearDown();
         System.out.println("Test execution done");
 
@@ -76,6 +77,17 @@ public class MainV1 {
         passwordInput.sendKeys("secret_sauce");
 
         WebElement  loginButtonClick = driver.findElement(By.className("submit-button"));
+        loginButtonClick.click();
+    }
+    public static void loginByTagnameTest(){
+        driver.get("https://www.saucedemo.com/");
+        WebElement userNameInput = driver.findElement(By.tagName("input"));
+        userNameInput.sendKeys("standard_user");
+
+        WebElement  passwordInput = driver.findElement(By.tagName("input"));
+        passwordInput.sendKeys("secret_sauce");
+
+        WebElement  loginButtonClick = driver.findElement(By.tagName("input"));
         loginButtonClick.click();
     }
 
