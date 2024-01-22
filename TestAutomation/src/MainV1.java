@@ -15,7 +15,7 @@ public class MainV1 {
 
     public static void main(String[] args) throws InterruptedException {
     webDriverSetup();
-    loginTest();
+    loginByIDTest();
     webDriverTearDown();
 
 
@@ -33,7 +33,7 @@ public class MainV1 {
         Thread.sleep(2500);
         driver.quit();
     }
-    public static void loginTest(){
+    public static void loginByIDTest(){
         driver.get("https://www.saucedemo.com/");
         try {
             wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("user-name")));
@@ -51,6 +51,10 @@ public class MainV1 {
         }catch (NoSuchElementException ex){
             System.err.println("Cannot find username/Password input field or login button");
         }
+    }
+
+    public static void loginByNameTest(){
+
     }
 
 }
