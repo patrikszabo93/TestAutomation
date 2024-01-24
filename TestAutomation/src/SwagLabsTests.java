@@ -16,27 +16,84 @@ public class SwagLabsTests {
 
     public static void main(String[] args) throws InterruptedException {
     webDriverSetup();
-   loginWithValidDataTest();
-        loginWithInValidDataTest();
-        loginWithEmptyUserNameDataTest();
-        loginWithEmptyPasswordDataTest();
+  // loginWithValidDataTest();
+      //  loginWithInValidDataTest();
+      //  loginWithEmptyUserNameDataTest();
+      //  loginWithEmptyPasswordDataTest();
+      //  loginWithInvalidUsernameDataTest();
+     //   loginWithInvalidPasswordDataTest();
    webDriverTearDown();
 
         System.out.println("Test execution done");
     }
 
     public static void loginWithValidDataTest(){
+        driver.get("https://www.saucedemo.com/");
+        WebElement userNameInput = driver.findElement(By.name("user-name"));
+        userNameInput.sendKeys("standard_user");
 
+        WebElement  passwordInput = driver.findElement(By.name("password"));
+        passwordInput.sendKeys("secret_sauce");
+
+        WebElement  loginButtonClick = driver.findElement(By.name("login-button"));
+        loginButtonClick.click();
     }
     public static void loginWithInValidDataTest(){
+        driver.get("https://www.saucedemo.com/");
+        WebElement userNameInput = driver.findElement(By.name("user-name"));
+        userNameInput.sendKeys("standard_user2");
 
+        WebElement  passwordInput = driver.findElement(By.name("password"));
+        passwordInput.sendKeys("secret_sauce2");
+
+        WebElement  loginButtonClick = driver.findElement(By.name("login-button"));
+        loginButtonClick.click();
     }
     public static void loginWithEmptyUserNameDataTest(){
+        driver.get("https://www.saucedemo.com/");
+        WebElement userNameInput = driver.findElement(By.name("user-name"));
+        userNameInput.sendKeys(" ");
 
+        WebElement  passwordInput = driver.findElement(By.name("password"));
+        passwordInput.sendKeys("secret_sauce");
+
+        WebElement  loginButtonClick = driver.findElement(By.name("login-button"));
+        loginButtonClick.click();
     }
     public static void loginWithEmptyPasswordDataTest(){
+        driver.get("https://www.saucedemo.com/");
+        WebElement userNameInput = driver.findElement(By.name("user-name"));
+        userNameInput.sendKeys("standard_user");
 
+        WebElement  passwordInput = driver.findElement(By.name("password"));
+        passwordInput.sendKeys("");
+
+        WebElement  loginButtonClick = driver.findElement(By.name("login-button"));
+        loginButtonClick.click();
     }
+    public static void loginWithInvalidUsernameDataTest(){
+        driver.get("https://www.saucedemo.com/");
+        WebElement userNameInput = driver.findElement(By.xpath("/html/body/div/div/div[2]/div[1]/div/div/form/div[1]/input"));// vagy //*[@id="user-name"]
+        userNameInput.sendKeys("standard_user2");
+
+        WebElement  passwordInput = driver.findElement(By.xpath("/html/body/div/div/div[2]/div[1]/div/div/form/div[2]/input")); //vagy //*[@id="password"]
+        passwordInput.sendKeys("secret_sauce");
+
+        WebElement  loginButtonClick = driver.findElement(By.xpath("/html/body/div/div/div[2]/div[1]/div/div/form/input"));// vagy //*[@id="login-button"]
+        loginButtonClick.click();
+    }
+    public static void loginWithInvalidPasswordDataTest(){
+        driver.get("https://www.saucedemo.com/");
+        WebElement userNameInput = driver.findElement(By.xpath("/html/body/div/div/div[2]/div[1]/div/div/form/div[1]/input"));// vagy //*[@id="user-name"]
+        userNameInput.sendKeys("standard_user");
+
+        WebElement  passwordInput = driver.findElement(By.xpath("/html/body/div/div/div[2]/div[1]/div/div/form/div[2]/input")); //vagy //*[@id="password"]
+        passwordInput.sendKeys("secret_sauce2");
+
+        WebElement  loginButtonClick = driver.findElement(By.xpath("/html/body/div/div/div[2]/div[1]/div/div/form/input"));// vagy //*[@id="login-button"]
+        loginButtonClick.click();
+    }
+
 
 
     public static void webDriverSetup(){

@@ -27,9 +27,11 @@ public class Main {
             WebElement  userNameInput = driver.findElement(By.id("user-name"));
             userNameInput.sendKeys("standard_user");
             Thread.sleep(2500);
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("password")));
             WebElement  passwordInput = driver.findElement(By.id("password"));
             passwordInput.sendKeys("secret_sauce");
             Thread.sleep(2500);
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("login-button")));
             WebElement  loginButtonClick = driver.findElement(By.id("login-button"));
             loginButtonClick.click();
             Thread.sleep(2500);
