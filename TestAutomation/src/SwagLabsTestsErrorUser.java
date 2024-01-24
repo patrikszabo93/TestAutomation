@@ -106,7 +106,7 @@ public class SwagLabsTestsErrorUser {
     }
 
     public static void webDriverTearDown() throws InterruptedException {
-        Thread.sleep(2500);
+        Thread.sleep(3500);
         driver.quit();
     }
     public static void loginByIDTest(){
