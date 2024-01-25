@@ -6,6 +6,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.Test;
 
 import java.time.Duration;
 import java.util.List;
@@ -14,19 +17,19 @@ public class SwagLabsTestsStandardUser {
     static WebDriver driver;
     static WebDriverWait wait;
 
-    public static void main(String[] args) throws InterruptedException {
-    webDriverSetup();
+  //  public static void main(String[] args) throws InterruptedException {
+//    webDriverSetup();
   // loginWithValidDataTest();
       //  loginWithInValidDataTest();
       //  loginWithEmptyUserNameDataTest();
       //  loginWithEmptyPasswordDataTest();
       //  loginWithInvalidUsernameDataTest();
      //   loginWithInvalidPasswordDataTest();
-   webDriverTearDown();
+    //  webDriverTearDown();
 
-        System.out.println("Test execution done");
-    }
-
+    //      System.out.println("Test execution done");
+//    }
+@Test
     public static void loginWithValidDataTest(){
         driver.get("https://www.saucedemo.com/");
         WebElement userNameInput = driver.findElement(By.name("user-name"));
@@ -95,7 +98,7 @@ public class SwagLabsTestsStandardUser {
     }
 
 
-
+@BeforeSuite
     public static void webDriverSetup(){
         driver = new FirefoxDriver();
         driver.manage().window().maximize();
@@ -104,7 +107,7 @@ public class SwagLabsTestsStandardUser {
 
          wait = new WebDriverWait(driver,Duration.ofMillis(30000));
     }
-
+@AfterSuite
     public static void webDriverTearDown() throws InterruptedException {
         Thread.sleep(2500);
         driver.quit();

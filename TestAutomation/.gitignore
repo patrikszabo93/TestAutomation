@@ -3,6 +3,9 @@ out/
 !**/src/main/**/out/
 !**/src/test/**/out/
 geckodriver.exe
+jcommander-1.82.jar
+slf4j-api-2.0.11.jar
+testng-7.9.0.jar
 ### Eclipse ###
 .apt_generated
 .classpath
