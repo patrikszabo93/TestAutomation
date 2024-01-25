@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
@@ -40,7 +41,13 @@ public class SwagLabsTestsStandardUser {
 
         WebElement  loginButtonClick = driver.findElement(By.name("login-button"));
         loginButtonClick.click();
+
+    WebElement  productsTitle = driver.findElement(By.className("title"));
+    Assert.assertNotNull(productsTitle);
+
+
     }
+    @Test
     public static void loginWithInValidDataTest(){
         driver.get("https://www.saucedemo.com/");
         WebElement userNameInput = driver.findElement(By.name("user-name"));
@@ -51,7 +58,10 @@ public class SwagLabsTestsStandardUser {
 
         WebElement  loginButtonClick = driver.findElement(By.name("login-button"));
         loginButtonClick.click();
+        WebElement errorMessage = driver.findElement(By.className("error-message-container"));
+        Assert.assertNotNull(errorMessage);
     }
+    @Test
     public static void loginWithEmptyUserNameDataTest(){
         driver.get("https://www.saucedemo.com/");
         WebElement userNameInput = driver.findElement(By.name("user-name"));
@@ -62,6 +72,7 @@ public class SwagLabsTestsStandardUser {
 
         WebElement  loginButtonClick = driver.findElement(By.name("login-button"));
         loginButtonClick.click();
+
     }
     public static void loginWithEmptyPasswordDataTest(){
         driver.get("https://www.saucedemo.com/");
