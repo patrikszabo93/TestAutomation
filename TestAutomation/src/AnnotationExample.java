@@ -40,7 +40,10 @@ public class AnnotationExample {
     public void Test(){
         System.out.println("Lets do some test as well");
     }
-
+    @Test
+    public void Test2(){
+        System.out.println("Lets do some test as well");
+    }
 
 
 }
