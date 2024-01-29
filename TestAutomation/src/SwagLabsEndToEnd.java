@@ -1,6 +1,7 @@
 import jdk.jfr.Description;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class SwagLabsEndToEnd extends SwagLabsTestsStandardUser{
@@ -48,11 +49,13 @@ public class SwagLabsEndToEnd extends SwagLabsTestsStandardUser{
 //        12. Rákattintok a "Back Home" gombra
         WebElement  backtopClick = driver.findElement(By.id("back-to-products"));
         backtopClick.click();
-
         // Elvárt működés
-        /*
-        - A felület címe "Products"
-        - A cart badge nem jelenik meg a kosár ikonon (opcionális)
-         */
+
+      //  - A felület címe "Products"
+        WebElement  productsTitle = driver.findElement(By.className("title"));
+        Assert.assertNotNull(productsTitle);
+        Assert.assertEquals(productsTitle.getText(),"Products");
+       // - A cart badge nem jelenik meg a kosár ikonon (opcionális)
+
     }
 }
