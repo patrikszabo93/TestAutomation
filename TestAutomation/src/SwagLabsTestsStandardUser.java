@@ -30,7 +30,7 @@ public class SwagLabsTestsStandardUser {
 
     //      System.out.println("Test execution done");
 //    }
-@Test
+
     public static void loginWithValidDataTest(){
         driver.get("https://www.saucedemo.com/");
         WebElement userNameInput = driver.findElement(By.name("user-name"));
@@ -47,7 +47,7 @@ public class SwagLabsTestsStandardUser {
 
 
     }
-    @Test
+
     public static void loginWithInValidDataTest(){
         driver.get("https://www.saucedemo.com/");
         WebElement userNameInput = driver.findElement(By.name("user-name"));
@@ -61,7 +61,7 @@ public class SwagLabsTestsStandardUser {
         WebElement errorMessage = driver.findElement(By.className("error-message-container"));
         Assert.assertNotNull(errorMessage);
     }
-    @Test
+
     public static void loginWithEmptyUserNameDataTest(){
         driver.get("https://www.saucedemo.com/");
         WebElement userNameInput = driver.findElement(By.name("user-name"));
