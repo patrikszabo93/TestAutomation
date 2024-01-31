@@ -5,6 +5,8 @@ import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import javax.swing.text.Element;
+
 public class SwagLabsEndToEnd extends SwagLabsTestsStandardUser {
     @Test
     @Description("Standard user log in and buy a product.")
@@ -124,8 +126,10 @@ public class SwagLabsEndToEnd extends SwagLabsTestsStandardUser {
         finishClick.click();
 
         //    Megjelenik a "Thank you for your order!" felirat a képernyőn (Asser használatával)
-        boolean isWebpageContainsBadge = driver.getPageSource().contains("Thank you for your order!");
-        Assert.assertTrue(isWebpageContainsBadge);
+        WebElement confirmText = driver.findElement(By.className("complete_header"));
+        String confirmTextString = confirmText.getText();
+        Assert.assertEquals(confirmTextString,"Thank you for your order!");
+
         // 15. Rákattintunk a menü "Logout" menüpontjára
         WebElement menuClick = driver.findElement(By.xpath("//*[@id=\"react-burger-menu-btn\"]"));
         menuClick.click();
