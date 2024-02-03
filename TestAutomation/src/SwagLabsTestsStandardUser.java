@@ -211,4 +211,15 @@ public class SwagLabsTestsStandardUser {
         WebElement  loginButtonClick = driver.findElement(By.xpath("/html/body/div/div/div[2]/div[1]/div/div/form/input"));// vagy //*[@id="login-button"]
         loginButtonClick.click();
     }
+    public void loginWithUserAndPassword(String user, String password) {
+        // when user types valid auth data
+        WebElement userNameInput = driver.findElement(By.name("user-name"));
+        userNameInput.sendKeys(user);
+
+        WebElement passwordInput = driver.findElement(By.name("password"));
+        passwordInput.sendKeys(password);
+
+        WebElement loginButton = driver.findElement(By.name("login-button"));
+        loginButton.click();
+    }
 }
